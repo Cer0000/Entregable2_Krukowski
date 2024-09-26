@@ -1,62 +1,43 @@
-let listaDeProductos = JSON.parse(localStorage.getItem("Productos")) || []
+let inputText = document.getElementById("input-tarea")
+let btnAdd = document.getElementById("add")
+let btnDel = document.getElementById("delete")
+let lista = document.getElementById("lista")
 
+function mostrarTareasGuardadas() {
+    let tareasGuardados = JSON.parse(localStorage.getItem('textos')) || []
 
-class Producto {
-    constructor(id, producto, precio) {
-        this.id = id
-        this.producto = producto
-        this.precio = precio
+    lista.innerHTML = ''
+
+    // console.log(tareasGuardados)
+
+    tareasGuardados.forEach(function(texto) {
+        let li = document.createElement('li')
+        li.textContent = texto
+        lista.appendChild(li)
+    })
+}
+
+mostrarTareasGuardadas()
+
+function agregar() {
+    let tareaAgregada = inputText.value
+
+    if (tareaAgregada) {
+        let tareasGuardados = JSON.parse(localStorage.getItem('textos')) || []
+
+        tareasGuardados.push(tareaAgregada)
+
+        localStorage.setItem('textos', JSON.stringify(tareasGuardados))
+
+        mostrarTareasGuardadas()
+
+        inputText.value = ""
     }
 }
 
-
-function agregarProducto() {
-    const inputId = document.getElementById('input-id').value
-    const inputProducto = document.getElementById('input-producto').value
-    const inputPrecio = document.getElementById('input-precio').value
-
+function borrar() {
     
-    const productoExistente = listaDeProductos.some(producto => 
-        producto.id === inputId || producto.producto.toLowerCase() === inputProducto.toLowerCase()
-    )
-
-    if (productoExistente) {
-        console.error("El ID o el nombre del producto ya existen. Por favor, ingresa uno diferente")
-        return
-    }else if ((inputId === "") || (inputProducto === "") || (inputPrecio === "")) {
-        console.error("Complete todos los datos para agregar el producto")
-        return
-    }
-
-
-    const nuevoProducto = new Producto(inputId, inputProducto, inputPrecio)
-
-    
-    listaDeProductos.push(nuevoProducto)
-
-    
-    localStorage.setItem("Productos", JSON.stringify(listaDeProductos))
-
-    
-    document.getElementById('input-id').value = ''
-    document.getElementById('input-producto').value = ''
-    document.getElementById('input-precio').value = ''
-
-    console.log("Agregaste un nuevo producto")
 }
 
-
-function mostrarProductos() {
-    const productos = JSON.parse(localStorage.getItem("Productos")) || []
-    console.log(productos)
-}
-
-
-function borrarProducto() {
-    localStorage.clear()
-}
-
-
-document.getElementById("add").addEventListener("click", agregarProducto)
-document.getElementById("mostrar").addEventListener("click", mostrarProductos)
-document.getElementById("delete").addEventListener("click", borrarProducto)
+document.getElementById("add").addEventListener("click", agregar)
+document.getElementById("delete").addEventListener("click", borrar)

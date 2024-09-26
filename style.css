@@ -42,14 +42,49 @@ form{
     border-radius: 5px;
     color: #fff;
     background: #0e0e0e;
+    transition: .1s;
+}
+
+.btn:active{
+    transform: scale(.9);
+    transition: .1s;
 }
 
 .titulo{
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 .content{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.input-text{
+    width: 250px;
+    height: 40px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #bababa;
+    border: none;
+}
+
+.input-text:focus{
+    outline: none;
+}
+
+.content-tareas{
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    padding: 1rem;
+    background: #bababa;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.lista{
+    margin: 1rem;
 }

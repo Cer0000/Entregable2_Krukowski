@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
-    <title>Lista de productos</title>
+    <title>Lista de tareas</title>
 </head>
 
 <body>
@@ -13,22 +13,20 @@
 
         <div class="content">
 
-            <h1 class="titulo">Lista de productos</h1>
-            <p>
-                Mirar la consola
-            </p>
+            <h1 class="titulo">Lista de tareas</h1>
 
-            <form id="form-producto">
+            <form id="form-tarea">
 
-                <input type="number" id="input-id" placeholder="Id">
-                <input type="text" id="input-producto" placeholder="Producto">
-                <input type="number" id="input-precio" placeholder="Precio">
+                <input type="text" id="input-tarea" class="input-text" placeholder="Tareas">
 
                 <button type="button" class="btn add" id="add">Agregar</button>
-                <button type="button" class="btn mostrar" id="mostrar">Mostrar productos</button>
-                <button type="button" class="btn delete" id="delete">Borrar productos</button>
+                <button type="button" class="btn delete" id="delete">Borrar</button>
 
             </form>
+
+            <div class="content-tareas" id="content-tareas">
+                <ul class="lista" id="lista"></ul>
+            </div>
 
         </div>
 
