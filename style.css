@@ -75,16 +75,37 @@ form{
 }
 
 .content-tareas{
-    overflow: hidden;
+    overflow: scroll;
     width: 250px;
     height: 250px;
     padding: 1rem;
     background: #bababa;
     color: #000;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 
 .lista{
     margin: 1rem;
+}
+
+input[type="checkbox"]{
+    appearance: none;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    background: #000;
+}
+
+input:checked{
+    appearance: none;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    background: #000 url(/check.svg);
+}
+
+li{
+    display: flex;
+    align-items: center;
 }
